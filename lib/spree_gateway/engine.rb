@@ -11,14 +11,15 @@ module SpreeGateway
 
     initializer "spree.gateway.payment_methods", :after => "spree.register.payment_methods" do |app|
         app.config.spree.payment_methods << Spree::Gateway::AuthorizeNet
+        app.config.spree.payment_methods << Spree::Gateway::Beanstream
+        app.config.spree.payment_methods << Spree::Gateway::Braintree
         app.config.spree.payment_methods << Spree::Gateway::Eway
+        app.config.spree.payment_methods << Spree::Gateway::FirstData
         app.config.spree.payment_methods << Spree::Gateway::Linkpoint
         app.config.spree.payment_methods << Spree::Gateway::PayPal
         app.config.spree.payment_methods << Spree::Gateway::SagePay
-        app.config.spree.payment_methods << Spree::Gateway::Beanstream
-        app.config.spree.payment_methods << Spree::Gateway::Braintree
-        app.config.spree.payment_methods << Spree::Gateway::Stripe
         app.config.spree.payment_methods << Spree::Gateway::Samurai
+        app.config.spree.payment_methods << Spree::Gateway::Stripe
     end
   end
 
